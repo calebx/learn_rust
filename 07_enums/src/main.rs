@@ -22,6 +22,7 @@ enum Coin {
 #[allow(dead_code)]
 impl Coin {
     fn value(&self) -> u32 {
+        // match works a lot for enum types
         match self {
             Coin::Penny => 1,
             Coin::Nickel => 5,
@@ -38,6 +39,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
     }
 }
 
+// Enums in Rust are most similar to Haskell
 fn main() {
     let v4 = IpAddrType::V4;
     let v6 = IpAddrType::V6;
@@ -55,6 +57,7 @@ fn main() {
     let oi = Some(5);
     println!("value of option int add one is {:?}", plus_one(oi));
 
+    // if let some times is the replacement of match
     let quarter = Coin::Quarter("Califonia".into());
     if let Coin::Quarter(state) = quarter {
         println!("{:?}", state);
